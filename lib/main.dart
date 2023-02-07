@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Practice',
+      theme: ThemeData(fontFamily: 'Montserrat'),
       initialRoute: '/register',
       routes: {
         '/login': (context) => const LoginPage(),
         '/register': (context) => const RegisterPage(),
-        
         '/': (context) => const Dashboard(),
       },
     );
