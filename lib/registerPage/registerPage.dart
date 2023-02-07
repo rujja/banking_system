@@ -231,26 +231,32 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Expanded(
                       flex: 5,
-                      child: TextButton(
-                        onPressed: (() {
-                          Navigator.pushNamed(context, '/login');
-                        }),
-                        child: const Text('Cancel',
-                            style: TextStyle(color: Colors.pink)),
+                      child: SizedBox(
+                        height: 40,
+                        child: TextButton(
+                          onPressed: (() {
+                            Navigator.pushNamed(context, '/login');
+                          }),
+                          child: const Text('Cancel',
+                              style: TextStyle(color: Colors.pink)),
+                        ),
                       )),
                   Container(
-                    height: 30,
+                    height: 40,
                     width: 1,
                     color: Colors.grey,
                   ),
                   Expanded(
                       flex: 5,
-                      child: TextButton(
-                          onPressed: (() {
-                            Navigator.pushNamed(context, '/');
-                          }),
-                          child: const Text('Continue',
-                              style: TextStyle(color: Colors.pink)))),
+                      child: SizedBox(
+                        height: 40,
+                        child: TextButton(
+                            onPressed: (() {
+                              Navigator.pushNamed(context, '/');
+                            }),
+                            child: const Text('Continue',
+                                style: TextStyle(color: Colors.pink))),
+                      )),
                 ],
               ),
             ],
