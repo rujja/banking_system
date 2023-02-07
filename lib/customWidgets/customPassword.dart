@@ -47,6 +47,7 @@ class _CustomPasswordState extends State<CustomPassword> {
                     }),
                     icon:
                         visibility ? Icon(Icons.lock_open) : Icon(Icons.lock))),
+         
           ),
         ),
       ],
