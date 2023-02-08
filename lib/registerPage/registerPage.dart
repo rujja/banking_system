@@ -1,20 +1,27 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:practice/customWidgets/customPassword.dart';
+import 'package:practice/customWidgets/customTextField.dart';
+
+final _formKey = GlobalKey<FormState>();
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key? key}) : super(key: key);
-  final _formKey = GlobalKey<FormState>();
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
   bool visibility = false;
   String genderValue = 'Male';
+
   @override
   Widget build(BuildContext context) {
-    var _formKey;
     return Scaffold(
       body: SingleChildScrollView(
         child: Form(
@@ -39,112 +46,38 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('First Name'),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xffF5F5F5),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey)),
-                  child: TextFormField(
-                    cursorColor: Colors.black,
-                    decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Enter first name here",
-                        hintStyle: TextStyle(fontSize: 14)),
+
+                CustomTextField(
+                    title: 'First Name',
+                    hintText: 'Enter first name here',
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
+                        return 'Please enter first name';
                       }
                       return null;
-                    },
-                  ),
-                ),
+                    }),
+              
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Middle Name'),
-                const SizedBox(
-                  height: 10,
+                const CustomTextField(
+                  title: 'Middle Name',
+                  hintText: 'Enter middle name here',
                 ),
-                Container(
-                    decoration: BoxDecoration(
-                        color: Color(0xffF5F5F5),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey)),
-                    child: const TextField(
-                      cursorColor: Colors.black,
-                      decoration: InputDecoration(
-                          border: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          errorBorder: InputBorder.none,
-                          disabledBorder: InputBorder.none,
-                          contentPadding: EdgeInsets.only(
-                              left: 15, bottom: 11, top: 11, right: 15),
-                          hintText: "Enter middle name here",
-                          hintStyle: TextStyle(fontSize: 14)),
-                    )),
+
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Last Name'),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xffF5F5F5),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey)),
-                  child: const TextField(
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Enter last name here",
-                        hintStyle: TextStyle(fontSize: 14)),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text('Email'),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xffF5F5F5),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey)),
-                  child: const TextField(
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Enter email here",
-                        hintStyle: TextStyle(fontSize: 14)),
-                  ),
-                ),
+                CustomTextField(
+                    title: 'Last Name',
+                    hintText: 'Enter last name here',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter last name';
+                      }
+                      return null;
+                    }),
+
                 const SizedBox(
                   height: 20,
                 ),
@@ -155,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       value: value,
                       child: Text(
                         value,
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       ),
                     );
                   }).toList(),
@@ -167,73 +100,72 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
+                ),
+                const CustomTextField(
+                  title: 'Address',
+                  hintText: 'Enter address here',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Phone'),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xffF5F5F5),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey)),
-                  child: const TextField(
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Enter phone no. here",
-                        hintStyle: TextStyle(fontSize: 14)),
-                  ),
-                ),
+                CustomTextField(
+                    title: 'Email',
+                    hintText: 'Enter email here',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter email';
+                      }
+                      return null;
+                    }),
+
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Address'),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xffF5F5F5),
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey)),
-                  child: const TextField(
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        contentPadding: EdgeInsets.only(
-                            left: 15, bottom: 11, top: 11, right: 15),
-                        hintText: "Enter address here",
-                        hintStyle: TextStyle(fontSize: 14)),
-                  ),
-                ),
+                CustomTextField(
+                    title: 'Phone no.',
+                    hintText: 'Enter phone no. here',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter phone no.';
+                      }
+                      return null;
+                    }),
+
                 const SizedBox(
                   height: 20,
                 ),
-                const CustomPassword(
+                CustomTextField(
+                  obscureText: true,
+                  controller: passwordController,
                   title: 'Password',
                   hintText: 'Enter password here',
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter password ';
+                    }
+                    if (value!.length <= 5) {
+                      return 'Please enter valid password with character more than 5';
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const CustomPassword(
+                CustomTextField(
+                  obscureText: true,
+                  controller: confirmPasswordController,
                   title: 'Confirm password',
                   hintText: 'Enter confirm password here',
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter confirm password';
+                    }
+                    if (passwordController.text !=
+                        confirmPasswordController.text) {
+                      return 'Password does not match';
+                    }
+                  },
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -263,12 +195,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: TextButton(
                               onPressed: (() {
                                 if (_formKey.currentState!.validate()) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text('Processing Data')),
-                                  );
-                                } 
                                   Navigator.pushNamed(context, '/');
+                                }
                               }),
                               child: const Text('Continue',
                                   style: TextStyle(color: Colors.pink))),
