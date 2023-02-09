@@ -1,6 +1,8 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:practice/customWidgets/customCard.dart';
+import 'package:practice/customWidgets/customCards.dart';
 import 'package:practice/customWidgets/customPassword.dart';
 import 'package:practice/customWidgets/customTextField.dart';
 
@@ -31,6 +33,15 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                CustomCard(
+                  child: Column(
+                    children: const [Text('card'), Text('custom')],
+                  ),
+                ),
+                const CustomCards(children: [
+                  Text('hello'),
+                  Text('world'),
+                ]),
                 const SizedBox(
                   height: 20,
                 ),
@@ -46,7 +57,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(
                   height: 20,
                 ),
-
                 CustomTextField(
                     title: 'First Name',
                     hintText: 'Enter first name here',
@@ -56,7 +66,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     }),
-              
                 const SizedBox(
                   height: 20,
                 ),
@@ -64,7 +73,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   title: 'Middle Name',
                   hintText: 'Enter middle name here',
                 ),
-
                 const SizedBox(
                   height: 20,
                 ),
@@ -77,7 +85,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     }),
-
                 const SizedBox(
                   height: 20,
                 ),
@@ -118,7 +125,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     }),
-
                 const SizedBox(
                   height: 20,
                 ),
@@ -131,7 +137,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     }),
-
                 const SizedBox(
                   height: 20,
                 ),
